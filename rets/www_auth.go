@@ -56,6 +56,7 @@ func (auth *WWWAuthTransport) Request(ctx context.Context, req *http.Request) (*
 			return auth.Requester(ctx, req)
 		case strings.HasPrefix(strings.ToLower(c), "basic"):
 			auth.hasBasic = true
+			log.Println(c)
 			req.SetBasicAuth(auth.Username, auth.Password)
 			return auth.Requester(ctx, req)
 		}

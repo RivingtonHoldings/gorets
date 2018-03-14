@@ -148,7 +148,8 @@ func (d *Digest) computeAuthorization(username, password, method, uri, cnonce st
 
 // CreateDigestResponse ...
 func (d *Digest) CreateDigestResponse(username, password, method, uri string) string {
-	return d.computeAuthorization(username, password, method, uri, d.createCnonce())
+	s := d.computeAuthorization(username, password, method, uri, d.createCnonce())
+	return s
 }
 
 func md5ThenHex(hasher hash.Hash, value string) string {
